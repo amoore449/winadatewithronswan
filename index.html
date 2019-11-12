@@ -54,6 +54,38 @@
 				}
 
 			food.send(foodtime);
+			Swan_Song();
+			}
+		
+		/*GENERATE FOOD FOR RON :)*/
+		function makon_time() {
+			var data = null;
+			var food = new XMLHttpRequest();
+			food.withCredentials = false;
+			food.addEventListener("readystatechange", function () {
+				if (this.readyState === this.DONE) {
+					console.log(this.responseText);
+				}
+			});
+			food.open("GET", "https://tuftsdiningdata.herokuapp.com/menus/dewick/12/11/2019", true);
+			food.onreadystatechange = function() {
+				if (food.readyState == 4 && food.status == 200) {
+						answer = food.responseText;
+						fullmeal = JSON.parse(answer);
+						document.getElementById("foodtime").innerHTML = "<br>" +"Ron ordered " + fullmeal["data"]["Lunch"]["GRILL SELECTIONS"]; 
+						
+					}
+					else if (food.readyState == 4 && food.status != 200) {
+						document.getElementById("foodtime").innerHTML = "Something is wrong!  Guess this date isn't go so well";
+					}
+					else if (food.readyState == 3) {
+						document.getElementById("foodtime").innerHTML = "Ron isn't ready to date yet!  Try again";
+					}
+
+				}
+
+			food.send(foodtime);
+			Swan_Song();
 			}
 
 	</script>
@@ -68,7 +100,7 @@
 	<button id="get-quote" onclick="Swan_Song()">Chat with Ron!</button>
 	<div><br/></div>
 	<button id="get-quote" onclick="bacon_time()">Order Ron a nice Carm meal!</button>
-
+	<button id="get-quote" onclick="makon_time()">Order Ron a nice Dewick meal!</button>
 	<div id="foodtime">&nbsp;</div>
 	</div>
 	<div id= "spacer2">&nbsp;</div>
