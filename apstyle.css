@@ -1,0 +1,53 @@
+html {
+      background-image:url("https://cf-images.us-east-1.prod.boltdns.net/v1/static/5596404784001/f2cdb140-9603-4db4-bc98-424d599e0419/689bcb8f-9dca-4509-9419-9981fd2058f6/1280x720/match/image.jpg");
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+       text-align: right;
+  }
+#textid {
+  background-color: #DEB887;
+  width: 30%;
+  float:right;
+  text-align: center;
+  padding: 2vh;
+   border-radius: 20%;
+   display: block;
+}
+#data{
+  font-size: 4vh;
+}
+#foodtime {
+  font-size: 3vh;
+  border: 2vh;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+h1{
+  font-size: 35px;
+}
+#get-quote{
+  padding: 1vh 1vh;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #A0522D; 
+  color: #fff;
+  display: inline-block;
+  font-size: 3vh;
+}
+#mybutton {
+  text-align: center;
+}
+#spacer{
+  float:right;
+  width:5%;
+}
+#spacer3{
+  float:right;
+  width:5%;
+  clear:left;
+}
+#spacer2{
+  float:left;
+  width:65%;
+}
+         

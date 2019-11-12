@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Swanson API</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="apstyle.css">
+	<script>
+
+		/*GENERATE A QUOTE FROM RON*/
+
+		function Swan_Song() {
+			request = new XMLHttpRequest();
+			request.open("GET", "http://ron-swanson-quotes.herokuapp.com/v2/quotes", true);
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					result = request.responseText;
+					quote = JSON.parse(result);
+					document.getElementById("data").innerHTML = quote; 
+				} else if (request.readyState == 4 && request.status != 200) {
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+				} else if (request.readyState == 3) {
+					document.getElementById("data").innerHTML = "Too soon!  Try again";
+				}
+			}
+
+			request.send();
+		}
+
+		/*GENERATE FOOD FOR RON :)*/
+		function bacon_time() {
+			var data = null;
+			var food = new XMLHttpRequest();
+			food.withCredentials = false;
+			food.addEventListener("readystatechange", function () {
+				if (this.readyState === this.DONE) {
+					console.log(this.responseText);
+				}
+			});
+			food.open("GET", "https://tuftsdiningdata.herokuapp.com/menus/carm/12/11/2019", true);
+			food.onreadystatechange = function() {
+				if (food.readyState == 4 && food.status == 200) {
+						answer = food.responseText;
+						fullmeal = JSON.parse(answer);
+						document.getElementById("foodtime").innerHTML = "<br>" +"Ron ordered " + fullmeal["data"]["Lunch"]["GRILL SELECTIONS"]; 
+						
+					}
+					else if (food.readyState == 4 && food.status != 200) {
+						document.getElementById("foodtime").innerHTML = "Something is wrong!  Guess this date isn't go so well";
+					}
+					else if (food.readyState == 3) {
+						document.getElementById("foodtime").innerHTML = "Ron isn't ready to date yet!  Try again";
+					}
+
+				}
+
+			food.send(foodtime);
+			}
+
+	</script>
+
+</head>
+<body onload="Swan_Song()">
+	<div id= "spacer">&nbsp;</div>
+	<div id="textid">
+	<h1>Time for a date with Ron Swanson!</h1>
+	<div id="data">Loading... </br> </div>
+	<div><br/></div>
+	<button id="get-quote" onclick="Swan_Song()">Chat with Ron!</button>
+	<div><br/></div>
+	<button id="get-quote" onclick="bacon_time()">Order Ron a nice Carm meal!</button>
+
+	<div id="foodtime">&nbsp;</div>
+	</div>
+	<div id= "spacer2">&nbsp;</div>
+
+<!---QUESTION TIME
+describe the API you selected and what it does
+cite the website where you found it
+describe the options you used for the API request
+give two applications where this API would be helpful.-->
+	<div id= "spacer3">&nbsp;</div>
+	<div id="textid">
+	<h3>Describe the API you selected</h3>
+	<p>I used two APIs. The first API I selected generates randomized quotes from the "Park and Rec" TV Show character Ron Swanson, portrayed by Nick Offerman. The second API accesses the menu for a Tufts dining hall on a given day. </p>
+
+	<h3>Cite the website where you found it</h3>
+	<p>Ron Swanson Quotes: https://github.com/jamesseanwright/ron-swanson-quotes#ron-swanson-quotes-api <br/>
+	Tufts Dining Information: https://github.com/dyang108/diningdata
+	</p>
+
+	<h3>Describe the options you used for the API request</h3>
+	<p>The quote API did not have any categories since it just directly generated a quote. The Tufts dining API had categories for dining hall, meal, and section of the dining hall the user was eating from. I picked Carm, Lunch, and the Grill Selection (since Ron loves meat!)</p>
+
+		<h3>Give two applications where this API would be helpful</h3>
+	<p>The Ron Swanson API could be helpful for websites specializingn in generating quotes or a TV themed website looking for dynamic content with a scrolling quote bar. The Tufts Dining hall API could be useful for websites checking if a certain food is available in the dining halls or conbining the various menu selections from the different dining halls in a single place.</p>
+	</div>
+<div id= "spacer2">&nbsp;</div>
+
+</body>
+</html>
