@@ -10,7 +10,7 @@
 
 		function Swan_Song() {
 			request = new XMLHttpRequest();
-			request.open("GET", "http://ron-swanson-quotes.herokuapp.com/v2/quotes", true);
+			request.open("GET", "https://ron-swanson-quotes.herokuapp.com/v2/quotes", true);
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
 					result = request.responseText;
