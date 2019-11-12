@@ -41,7 +41,7 @@
 				if (food.readyState == 4 && food.status == 200) {
 						answer = food.responseText;
 						fullmeal = JSON.parse(answer);
-						document.getElementById("foodtime").innerHTML = "<br>" +"Ron ordered " + fullmeal["data"]["Lunch"]["GRILL SELECTIONS"]; + " " + fullmeal["data"]["Breakfast"]["BREAKFAST MEATS"] + " " + fullmeal["data"]["Breakfast"]["BELGIAN WAFFLE BAR"];
+						document.getElementById("foodtime").innerHTML = "<br>" +"Ron ordered " + fullmeal["data"]["Lunch"]["GRILL SELECTIONS"] + " " + fullmeal["data"]["Breakfast"]["BREAKFAST MEATS"] + " " + fullmeal["data"]["Breakfast"]["BELGIAN WAFFLE BAR"];
 						
 					}
 					else if (food.readyState == 4 && food.status != 200) {
